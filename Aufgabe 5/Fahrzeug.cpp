@@ -18,10 +18,11 @@ Die Klasse Fahrzeug.
 // Includes
 #include "Fahrzeug.hpp"
 #include <iostream>
-#include <MyString.hpp>
+#include <C:\Users\tommel\Documents\GitHub\OOS-HA3\Aufgabe 5\MyString.hpp>
+#include <string>
 
-// Statische Klassenvariablen
-unsigned int lastVin = 0;
+// Statische Klassenvariable
+unsigned int Fahrzeug::lastVin = 0;
 
 // Methoden
 
@@ -30,20 +31,24 @@ void Fahrzeug::fahren(double km){			// Erhöht den Kilometerzähler um das Argum
 }
 
 unsigned int Fahrzeug::useVin(){			// Liefert eine neue Seriennummer und speichert Klassengültig die letzte Seriennummer
-	return lastVin +1;
-			lastVin++;
+	return ++lastVin;
 }
+
+//void Fahrzeug::initVin(){
+//	// Statische Klassenvariablen
+//	static unsigned int lastVin = 0;
+//}
 
 	// Konstruktoren
 
 Fahrzeug::Fahrzeug(char *kennzeichen){
-	this->kz = new MyString(*kennzeichen);
+	this->kz = MyString(kennzeichen);
 	this->km = 0.0;
 	this->vin = useVin();
 }
 	// Operatoren
 
-	std::ostream & operator<<(std::ostream &s, Fahrzeug &kfz){
-	return s << kfz.kz << "VIN.: " << kfz.vin << " km = " << kfz.km << std::endl;
+std::ostream & operator<<(std::ostream &s, Fahrzeug &kfz){
+	return s << kfz.kz << " " << "VIN.: " << kfz.vin << " km = " << kfz.km << std::endl;
 	}
 
