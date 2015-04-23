@@ -4,12 +4,12 @@ E-Mail: matthias.geckeler@stud.hs-esslinge.de
 
 Datum: 22.04.2015
 Version: 2.0
-Zeitaufwand: xh
+Zeitaufwand: 1h
 
 Aenderungshistorie:
 -------------------
-Durchgefuehrte Aenderung						Autor		Datum
-Operatoren "+", "=", "[]" und "==" hinzugefügt  Geckeler	22.04.2015
+Durchgefuehrte Aenderung						|Autor		|Datum
+Operatoren "+", "=", "[]" und "==" hinzugefügt  |Geckeler	|22.04.2015
 -------------------------------------------------------
 Programmbeschreibung:
 Header der Klasse MyString mit der Erweiterung von Operatoren
@@ -47,7 +47,7 @@ public:
 	MyString operator= (MyString & str);
 	bool operator== (MyString & str);
 	friend ostream & operator<< (ostream & o, MyString & str);
-	char & operator[] (int index);
+	char & operator[] (unsigned int index);
 
 private:
 	unsigned int strSize;

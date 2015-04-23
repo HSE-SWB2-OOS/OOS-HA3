@@ -2,14 +2,15 @@
 Erstersteller: Matthias Geckeler
 E-Mail: matthias.geckeler@stud.hs-esslinge.de
 
-Datum: 22.04.2015
-Version: 2.0
-Zeitaufwand: xh
+Datum: 23.04.2015
+Version: 2.1
+Zeitaufwand: 2h
 
 Aenderungshistorie:
 -------------------
-Durchgefuehrte Aenderung						Autor		Datum
-Operatoren "+", "=", "[]" und "==" hinzugefügt  Geckeler	22.04.2015
+Durchgefuehrte Aenderung						|Autor		|Datum
+Operatoren "+", "=", "[]" und "==" hinzugefügt  |Geckeler	|22.04.2015
+Überprufung ob angegbener Index OK ist bei Operator [] |Geckeler |23.04.2015 
 -------------------------------------------------------
 Programmbeschreibung:
 Klasse My String mit erweiterung von Operatoren
@@ -157,7 +158,12 @@ ostream & operator<< (ostream & o, MyString & str)
 	return o<<str.c_str();
 }
 
-char & MyString::operator[] (int index)
+char & MyString::operator[] (unsigned int index)
 {
-	return this->strPtr[index];
+	char result = '\0';
+
+	if (index <= this->strSize)
+		result = this->strPtr[index];
+
+	return result;
 }
